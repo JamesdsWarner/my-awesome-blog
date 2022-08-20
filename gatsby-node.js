@@ -1,16 +1,81 @@
-// exports.createPages = async ({ graphql, actions }) => {
-//   const { data } = await graphql(``)
-// }
+const _ = require("lodash")
+const path = require("path")
+const { createFilePath } = require("gatsby-source-filesystem")
 
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
+
+  return graphql(`
+    {
+      allMarkdownRemark(limit: 1000) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              tags
+              templateKey
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      result.errors.forEach(e => console.error(e.toString()))
+      return Promise.reject(result.errors)
+    }
+
+    const posts = result.data.allMarkdownRemark.edges
+
+    posts.forEach(edge => {
+      const id = edge.node.id
+      createPage({
+        path: edge.node.fields.slug,
+        tags: edge.node.frontmatter.tags,
+        component: path.resolve(
+          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+        ),
+        // additional data can be passed via context
+        context: {
+          id,
+        },
+      })
+    })
+
+    // Tag pages:
+    let tags = []
+    // Iterate through each post, putting all found tags into `tags`
+    posts.forEach(edge => {
+      if (_.get(edge, `node.frontmatter.tags`)) {
+        tags = tags.concat(edge.node.frontmatter.tags)
+      }
+    })
+    // Eliminate duplicate tags
+    tags = _.uniq(tags)
+
+    // Make tag pages
+    tags.forEach(tag => {
+      const tagPath = `/tags/${_.kebabCase(tag)}/`
+
+      createPage({
+        path: tagPath,
+        component: path.resolve(`src/templates/tags.js`),
+        context: {
+          tag,
+        },
+      })
+    })
+  })
+}
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
-
     createNodeField({
       name: `slug`,
       node,
@@ -18,46 +83,3 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
-
-// exports.createSchemaCustomization = ({ actions }) => {
-//   const { createTypes } = actions
-
-//   // Explicitly define the siteMetadata {} object
-//   // This way those will always be defined even if removed from gatsby-config.js
-
-//   // Also explicitly define the Markdown frontmatter
-//   // This way the "MarkdownRemark" queries will return `null` even when no
-//   // blog posts are stored inside "content/blog" instead of returning an error
-//   createTypes(`
-//       type SiteSiteMetadata {
-//         author: Author
-//         siteUrl: String
-//         social: Social
-//       }
-
-//       type Author {
-//         name: String
-//         summary: String
-//       }
-
-//       type Social {
-//         twitter: String
-//       }
-
-//       type MarkdownRemark implements Node {
-//         frontmatter: Frontmatter
-//         fields: Fields
-//       }
-
-//       type Frontmatter {
-//         title: String
-//         description: String
-//         date: Date @dateformat
-//         thumbnail: File @fileByRelativePath
-//       }
-
-//       type Fields {
-//         slug: String
-//       }
-//     `)
-// }
