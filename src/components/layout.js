@@ -1,5 +1,5 @@
 import React from "react"
-import "../styles.scss"
+import "../styles/global.styles.scss"
 
 const Layout = ({ children }) => {
   return (
