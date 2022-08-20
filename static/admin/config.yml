@@ -20,3 +20,4 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { name: slug, label: Slug, required: true, widget: string }

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    
+}
+
+
+.layout {
+    font-family: 'DM Sans', sans-serif;
+
+    .home-title{
+        padding-top: 60px;
+        text-align: center;
+        font-size: 5rem;
+    }
+
+    .content {
+        overflow: hidden;
+    }
+
+    .footer{
+        bottom: 0;
+        margin-left: 50%;
+        margin-right: 50%;
+        width: 50%;
+        position: absolute;
+    }
+
+}
