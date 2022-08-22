@@ -12,10 +12,11 @@ const BlogFeed = ({ data }) => {
           const title = post.frontmatter.title
           const date = post.frontmatter.date
           const contents = post.excerpt
+          const slug = post.fields.slug
           return (
             <li key={date}>
               <h2>
-                <Link to={date} itemProp="url">
+                <Link to={"/blog" + slug} itemProp="url">
                   <span>{title}</span>
                 </Link>
               </h2>
@@ -37,6 +38,9 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
+        fields {
+          slug
+        }
         excerpt
         frontmatter {
           date(formatString: "MMMM DD, YYYY")

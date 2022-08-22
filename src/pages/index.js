@@ -16,23 +16,24 @@ const Home = ({ data }) => {
           {posts.map(post => {
             const title = post.frontmatter.title
             const date = post.frontmatter.date
+            const slug = post.fields.slug
+            console.log(slug)
             const postThumbnail = getImage(post.frontmatter.thumbnail)
             return (
-              <>
-                <div>
-                  <h3 className="home-post-title">{title}</h3>
-                  <h3 className="read-more">
-                    <Link to={date}>
-                      <span>Read article...</span>
-                    </Link>
-                  </h3>
-                  <GatsbyImage
-                    image={postThumbnail}
-                    alt={title}
-                    className="home-image"
-                  />
-                </div>
-              </>
+              <div key={post.title}>
+                <h3 className="home-post-title">{title}</h3>
+                <h3 className="read-more">
+                  <Link to={"/blog" + slug}>
+                    <span>Read article...</span>
+                  </Link>
+                </h3>
+                <GatsbyImage
+                  image={postThumbnail}
+                  alt={title}
+                  className="home-image"
+                  key={post.title}
+                />
+              </div>
             )
           })}
         </Carousel>
@@ -52,6 +53,9 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark {
       nodes {
+        fields {
+          slug
+        }
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title

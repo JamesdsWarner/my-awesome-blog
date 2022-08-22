@@ -1,18 +1,55 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import "../styles/global.styles.scss"
 import "../styles/blog-post.styles.scss"
 
-const BlogPostTemplate = () => {
-  ;<Layout>
-    <div className="details">
-      <h2>{title}</h2>
-      <div className="featured">{/* <GatsbyImage fluid={} /> */}</div>
-      {/* <div className="html" dangerouslySetInnerHTML={}/> */}
-    </div>
-  </Layout>
+const BlogPostTemplate = ({ data }) => {
+  const { html } = data.markdownRemark
+  const { title, date, thumbnail } = data.markdownRemark.frontmatter
+
+  return (
+    <Layout>
+      <div className="details">
+        <h2>{title}</h2>
+        <div className="featured">
+          <GatsbyImage
+            image={getImage(thumbnail.childImageSharp.gatsbyImageData)}
+            alt="Projects"
+          />
+        </div>
+        <p className="date">{date}</p>
+        <div className="html" dangerouslySetInnerHTML={{ __html: html }} />
+      </div>
+    </Layout>
+  )
 }
 
 export default BlogPostTemplate
+
+export const query = graphql`
+  query BlogPostBySlug($id: String) {
+    markdownRemark(id: { eq: $id }) {
+      html
+      fields {
+        slug
+      }
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        title
+        layout
+        thumbnail {
+          childImageSharp {
+            gatsbyImageData(
+              width: 800
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF, PNG]
+            )
+          }
+        }
+      }
+      id
+    }
+  }
+`

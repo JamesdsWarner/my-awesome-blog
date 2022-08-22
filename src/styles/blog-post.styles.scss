@@ -1,5 +1,10 @@
 .details {
-    h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+h2 {
         font-size: 3.5em;
         margin-top: 80px;
     }
@@ -14,6 +19,11 @@
     margin-top: 40px;
 }
 
+.date{
+    font-size: 0.75rem;
+    
+}
+
 .featured{
-    margin-bottom: 40px;
+    
 }
