@@ -45,6 +45,15 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData(
+                width: 1700
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF, PNG]
+              )
+            }
+          }
         }
       }
     }

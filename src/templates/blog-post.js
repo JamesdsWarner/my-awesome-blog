@@ -18,8 +18,9 @@ const BlogPostTemplate = ({ data }) => {
             image={getImage(thumbnail.childImageSharp.gatsbyImageData)}
             alt="Projects"
           />
+          <p className="date">{date}</p>
         </div>
-        <p className="date">{date}</p>
+
         <div className="html" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Layout>
