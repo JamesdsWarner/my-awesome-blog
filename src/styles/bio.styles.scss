@@ -1,0 +1,49 @@
+.bio-container{
+    @media screen and (max-width: 1450px) {
+        display: none
+    }
+   width: 30%;
+   position: sticky;
+   top: 150px;
+   justify-content: center;
+   align-self: flex-start
+
+}
+
+.bio-pic {
+    border-radius: 50%;
+    height: 25vw;
+    width: 25vw;
+    margin: auto;
+    display: block;
+    
+}
+
+.about-contact{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+.bio-name{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.bio-desc{
+    margin-top: 15px;
+}
+.social-media-icons{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+
+    .social-media-icon{
+        width: 50px;
+    }
+}
