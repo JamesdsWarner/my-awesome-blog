@@ -18,8 +18,12 @@ const Bio = () => {
         going to the gym. Follow me on my socials to be a part of my journey!
       </span>
       <div className="about-contact">
-        <span>About</span>
-        <span>Contact</span>
+        <Link to="/about">
+          <span className="bio-link">About</span>
+        </Link>
+        <Link to="/contact">
+          <span className="bio-link">Contact</span>
+        </Link>
       </div>
       <div className="social-media-icons">
         <a href="https://www.facebook.com" target="_blank">

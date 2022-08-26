@@ -1,0 +1,44 @@
+.contact-container {
+    margin-top: 200px;
+
+    .contact-heading{
+        text-align: center;
+        font-size: 40px;
+    }
+
+        .contact-form{
+            padding-top: 50px;
+            width: 800px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            height: 420px;
+            border-radius: 15px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+            .form-group-top{
+                text-align: center;
+            }
+
+            .form-group{
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            .button-container{
+                margin-top: 20px;
+                margin-left: 20%;
+            }
+        }
+    
+    
+}
+
+
+
+
+
+
+
+

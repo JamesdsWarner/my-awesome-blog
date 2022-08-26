@@ -4,7 +4,7 @@
     }
    width: 30%;
    position: sticky;
-   top: 150px;
+   top: 100px;
    justify-content: center;
    align-self: flex-start
 
@@ -24,6 +24,23 @@
     display: flex;
     justify-content: space-around;
     font-size: 20px;
+
+    a{
+    text-decoration: none;
+    }
+
+    .bio-link{
+        color: black;
+        transition: all 0.2s ease-in-out;
+
+        &:hover{
+            color: #F99D77;
+            transition: all 0.2s ease-in-out;
+        }
+
+    }
+    
+
 }
 
 .bio-name{
