@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import BlogsFeed from "../components/blog-feed"
 import { Link, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
 import { Carousel } from "react-responsive-carousel"
 import "../styles/global.styles.scss"
@@ -13,11 +13,17 @@ const Home = ({ data }) => {
   return (
     <Layout>
       <div className="home-container">
+        <StaticImage
+          className="home-background-pic"
+          src="../images/holiday-background.webp"
+          quality={100}
+          alt="Beach background picture"
+        />
         <Carousel
           showThumbs={false}
           infiniteLoop={true}
           showStatus={false}
-          showIndicators={false}
+          showArrows={false}
         >
           {posts
             .slice(posts.length - 5, posts.length)
@@ -30,12 +36,21 @@ const Home = ({ data }) => {
               const postThumbnail = getImage(post.frontmatter.thumbnail)
               return (
                 <div key={post.title}>
-                  <h3 className="home-post-title">{title}</h3>
-                  <h3 className="read-more">
+                  <div className="blog-title-shape">
+                    <div
+                      className={
+                        title.length > 6 ? "long-title" : "" + "one-line"
+                      }
+                    >
+                      <span className="home-post-title">
+                        {title}
+                        {/* {title.length < 8 ? title : title.substring(0, 8) + "..."} */}
+                      </span>
+                    </div>
                     <Link to={"/blog" + slug}>
-                      <span>Read article...</span>
+                      <span className="read-article">Read article...</span>
                     </Link>
-                  </h3>
+                  </div>
                   <GatsbyImage
                     image={postThumbnail}
                     alt={title}
@@ -47,8 +62,9 @@ const Home = ({ data }) => {
             })}
         </Carousel>
       </div>
-      <BlogsFeed data={data} location="blog-feed-home" />
-
+      <div>
+        <BlogsFeed data={data} location="blog-feed-home" />
+      </div>
       <Link to="/blog" className="blog-link">
         <h3>See More...</h3>
       </Link>
@@ -58,7 +74,7 @@ const Home = ({ data }) => {
 
 export default Home
 
-export const pageQuery = graphql`
+export const homePageQuery = graphql`
   query {
     allMarkdownRemark {
       nodes {

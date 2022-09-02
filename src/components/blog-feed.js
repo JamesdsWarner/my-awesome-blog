@@ -1,17 +1,17 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
 import "../styles/blog-feed.styles.scss"
 
 const BlogsFeed = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes
+  const n = 4
   return (
     <ol className={location === "blog" ? "blog-feed" : "blog-feed-home"}>
       {posts
         .slice(
-          posts.length - 5,
-          location === "blog" ? posts.length : posts.length - 10
+          location === "blog" ? posts.length - 5 : posts.length - 10,
+          location === "blog" ? posts.length : posts.length - 5
         )
         .slice(0)
         .reverse()
@@ -25,21 +25,26 @@ const BlogsFeed = ({ data, location }) => {
             <li className="blog-item" key={date}>
               <h2>
                 <Link
-                  to={"/blog" + slug}
+                  to={"/james" + slug}
                   itemProp="url"
                   className="title-container"
                 >
                   <span className="blog-title">{title}</span>
                 </Link>
               </h2>
-              <Link to={"/blog" + slug} itemProp="url">
-                <GatsbyImage
-                  image={postThumbnail}
-                  alt={title}
-                  className="home-image"
-                  key={post.title}
-                />
+              <Link to={"/james" + slug} itemProp="url">
+                <div className="home-image-container">
+                  <GatsbyImage
+                    image={postThumbnail}
+                    alt={title}
+                    className="home-image"
+                    key={post.title}
+                  />
+                </div>
               </Link>
+              <div className="post-caption-container">
+                <div className="post-caption"></div>
+              </div>
               <span className="date">{date}</span>
               <div>
                 <p>{contents}</p>
@@ -47,6 +52,9 @@ const BlogsFeed = ({ data, location }) => {
             </li>
           )
         })}
+      {[...Array(n)].map((e, i) => (
+        <li className="blog-item" key={i} />
+      ))}
     </ol>
   )
 }
