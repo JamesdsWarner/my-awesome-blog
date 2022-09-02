@@ -23,15 +23,6 @@ const BlogsFeed = ({ data, location }) => {
           const postThumbnail = getImage(post.frontmatter.thumbnail)
           return (
             <li className="blog-item" key={date}>
-              <h2>
-                <Link
-                  to={"/james" + slug}
-                  itemProp="url"
-                  className="title-container"
-                >
-                  <span className="blog-title">{title}</span>
-                </Link>
-              </h2>
               <Link to={"/james" + slug} itemProp="url">
                 <div className="home-image-container">
                   <GatsbyImage
@@ -41,14 +32,14 @@ const BlogsFeed = ({ data, location }) => {
                     key={post.title}
                   />
                 </div>
+                <div className="post-caption-container">
+                  <div className="post-caption">
+                    <span className="blog-title">{title}</span>
+                    <span className="date">{date}</span>
+                    <p className="contents">{contents}</p>
+                  </div>
+                </div>
               </Link>
-              <div className="post-caption-container">
-                <div className="post-caption"></div>
-              </div>
-              <span className="date">{date}</span>
-              <div>
-                <p>{contents}</p>
-              </div>
             </li>
           )
         })}

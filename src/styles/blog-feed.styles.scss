@@ -2,71 +2,80 @@
     display: flex;
     width: 80%;
     flex-wrap: wrap;
-    left: 0;
-    right: 0;
     justify-content: space-between;
     margin: auto;    
     list-style-type: none;
     padding-left: 0;
     margin-top: 30px;
+    column-gap: 1%;
+    row-gap: 10px;
+
+    @media screen and (max-width: 1000px) {
+        row-gap: 5px;
+        column-gap: 5px;
+        width: 95%;
+    }
 }
 
 .blog-item {
-    width: 30%;
-    min-width: 250px;
-    margin-bottom: 30px;
+ 
+    margin-bottom: 0px;
     color: white;
-    display:inline-block;
+    flex: 2 2 25%;
+    @media screen and (max-width: 1000px) {
+        flex: 2 2 40%;
+    }
+    @media screen and (max-width: 799px){
+        flex: 2 2 100%;
+
+    }
+
+
+    &:not(:hover){
+        .contents{
+    opacity: 0;        }
+    }
 
     &:hover{
         .post-caption{
             height: 110px;
         }
-
             .home-image{
             scale: 1.1;
             opacity: 0.5;
-    
-            
         }
+
+        .contents{
+            opacity: 1;
+        }
+        
     }
+
+    
 }
 
 .home-image{
-    height: 300px;
+    height: 20vw;
     margin-bottom: 0px;
+
+    @media screen and (max-width: 1000px) {
+        height: 50vw;
+    }
+    @media screen and (max-width: 799px){
+        height: 70vw;
+
+    }
+    
 }
 
-.blog-title{
-    text-decoration: none;
-    display: inline-block;
-    color: black;
-    transition: all 0.2s ease-in-out;
-}
+
 
 .title-container{
     transition: all 0.2s ease-in-out;
 
-    .blog-title{
-        color: white;
-    }
-
-    &:hover {
-        color: #EF6C34;
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-
-        .blog-title{
-            color: #EF6C34;
-            transition: all 0.3s ease-in-out;
-        }
-    }
 }
 
-.date{
-    font-size: 0.75rem;
-    margin-bottom: 5px;
-}
+
 
 .home-image{
     transition: all 0.3s ease;
@@ -91,6 +100,29 @@
         height: 80px;
         bottom: 0;
         transition: all 0.3s ease-in-out;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        color: white;
+
+        .blog-title{
+            text-decoration: none;
+            margin-bottom: 3px;
+            transition: all 0.2s ease-in-out;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        .date{
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+        .contents{
+            font-size: 0.7rem;
+            padding-left: 10px;
+            padding-right: 10px;
+            transition: all 0.3s ease-in-out;
+
+        }
         }
     }
 
