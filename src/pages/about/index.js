@@ -1,6 +1,7 @@
 import * as React from "react"
 import Layout from "../../components/layout"
-import { StaticImage, getImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
+import { Seo } from "../../components/seo"
 import "../../styles/about.styles.scss"
 
 const About = ({ data }) => {
@@ -87,3 +88,10 @@ const About = ({ data }) => {
 }
 
 export default About
+
+export const Head = () => (
+  <Seo
+    title="A short description about the blogger"
+    description="A little bit about me and my travelling journey so far."
+  />
+)

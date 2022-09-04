@@ -1,7 +1,8 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
+import { Seo } from "../components/seo"
 import "../styles/global.styles.scss"
 import "../styles/blog-post.styles.scss"
 
@@ -28,6 +29,8 @@ const BlogPostTemplate = ({ data }) => {
 }
 
 export default BlogPostTemplate
+
+export const Head = () => <Seo title="blog post" description="blog post" />
 
 export const query = graphql`
   query BlogPostBySlug($id: String) {

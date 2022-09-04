@@ -59,6 +59,8 @@
     width: 80%;
     margin: auto;
     margin-top: 40px;
+    -webkit-filter: invert(100%); /* Safari/Chrome */
+    filter: invert(100%);
 
     .social-media-icon{
         width: 50px;

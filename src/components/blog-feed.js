@@ -15,15 +15,15 @@ const BlogsFeed = ({ data, location }) => {
         )
         .slice(0)
         .reverse()
-        .map(post => {
+        .map((post, i) => {
           const title = post.frontmatter.title
           const date = post.frontmatter.date
           const contents = post.excerpt
           const slug = post.fields.slug
           const postThumbnail = getImage(post.frontmatter.thumbnail)
           return (
-            <li className="blog-item" key={date}>
-              <Link to={"/james" + slug} itemProp="url">
+            <li className="blog-item" key={i}>
+              <Link to={"/blog" + slug} itemProp="url">
                 <div className="home-image-container">
                   <GatsbyImage
                     image={postThumbnail}

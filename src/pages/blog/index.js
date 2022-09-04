@@ -1,13 +1,13 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import "../../styles/global.styles.scss"
 import "../../styles/blog.styles.scss"
 import BlogsFeed from "../../components/blog-feed"
 import Layout from "../../components/layout"
 import Bio from "../../components/bio"
+import { Seo } from "../../components/seo"
 
 const BlogFeed = ({ data }) => {
-  const posts = data.allMarkdownRemark.nodes
   return (
     <Layout>
       <div className="bio-blog-container">
@@ -19,6 +19,13 @@ const BlogFeed = ({ data }) => {
 }
 
 export default BlogFeed
+
+export const Head = () => (
+  <Seo
+    title="Feed of all the blog posts"
+    description="Check out all of my blog posts in one place."
+  />
+)
 
 export const blogFeedQuery = graphql`
   query {

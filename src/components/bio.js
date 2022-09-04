@@ -1,5 +1,5 @@
 import * as React from "react"
-import { StaticImage, getImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import "../styles/bio.styles.scss"
 
@@ -26,28 +26,28 @@ const Bio = () => {
         </Link>
       </div>
       <div className="social-media-icons">
-        <a href="https://www.facebook.com" target="_blank">
+        <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
           <StaticImage
             src="../images/facebook.png"
             className="social-media-icon"
             alt="Facebook icon"
           />
         </a>
-        <a href="https://www.instagram.com" target="_blank">
+        <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
           <StaticImage
             src="../images/instagram.png"
             className="social-media-icon"
             alt="Instagram icon"
           />
         </a>
-        <a href="https://www.twitter.com" target="_blank">
+        <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
           <StaticImage
             src="../images/twitter.png"
             className="social-media-icon"
             alt="Twitter icon"
           />
         </a>
-        <a href="https://www.pintrest.com" target="_blank">
+        <a href="https://www.pintrest.com" target="_blank" rel="noreferrer">
           <StaticImage
             src="../images/pintrest.webp"
             className="social-media-icon"

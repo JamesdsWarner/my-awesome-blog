@@ -6,6 +6,10 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: `Personal travel blog`,
+    description: `A personal travel blog sharing my experiences, learnings and dispensing wisdom.`,
+  },
   plugins: [
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-sass`,

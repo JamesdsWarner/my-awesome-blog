@@ -2,6 +2,7 @@ import * as React from "react"
 import Layout from "../../components/layout"
 import TextField from "@mui/material/TextField"
 import Button from "../../components/button"
+import { Seo } from "../../components/seo"
 import "../../styles/contact.styles.scss"
 
 const Contact = ({ data }) => {
@@ -56,3 +57,10 @@ const Contact = ({ data }) => {
 }
 
 export default Contact
+
+export const Head = () => (
+  <Seo
+    title="A form to submit in order to contact the blogger"
+    description="For any questions, recommendations or anything else, get in touch via my contact form."
+  />
+)
