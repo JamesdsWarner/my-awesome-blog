@@ -1,9 +1,10 @@
 import * as React from "react"
-import Layout from "../../components/layout"
+import loadable from "@loadable/component"
 import TextField from "@mui/material/TextField"
-import Button from "../../components/button"
 import { Seo } from "../../components/seo"
 import "../../styles/contact.styles.scss"
+const Layout = loadable(() => import("../../components/layout"))
+const Button = loadable(() => import("../../components/button"))
 
 const Contact = ({ data }) => {
   return (

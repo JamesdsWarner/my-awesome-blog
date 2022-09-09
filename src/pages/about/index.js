@@ -1,8 +1,9 @@
 import * as React from "react"
-import Layout from "../../components/layout"
+import loadable from "@loadable/component"
 import { StaticImage } from "gatsby-plugin-image"
 import { Seo } from "../../components/seo"
 import "../../styles/about.styles.scss"
+const Layout = loadable(() => import("../../components/layout"))
 
 const About = ({ data }) => {
   return (

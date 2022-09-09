@@ -9,7 +9,7 @@ const Bio = () => {
       <StaticImage
         className="bio-pic"
         src="../images/bio-pic.jpg"
-        quality={95}
+        quality={40}
         alt="Profile Picture"
       />
       <h4 className="bio-name">James Warner</h4>

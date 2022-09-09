@@ -1,6 +1,5 @@
 import * as React from "react"
-import Layout from "../components/layout"
-import BlogsFeed from "../components/blog-feed"
+import loadable from "@loadable/component"
 import { Seo } from "../components/seo"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
@@ -8,6 +7,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loa
 import { Carousel } from "react-responsive-carousel"
 import "../styles/global.styles.scss"
 import "../styles/home.styles.scss"
+const Layout = loadable(() => import("../components/layout"))
+const BlogsFeed = loadable(() => import("../components/blog-feed"))
 
 const Home = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
@@ -92,7 +93,7 @@ export const homePageQuery = graphql`
           thumbnail {
             childImageSharp {
               gatsbyImageData(
-                width: 1700
+                width: 1200
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF, PNG]
               )

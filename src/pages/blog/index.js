@@ -2,10 +2,11 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import "../../styles/global.styles.scss"
 import "../../styles/blog.styles.scss"
-import BlogsFeed from "../../components/blog-feed"
-import Layout from "../../components/layout"
-import Bio from "../../components/bio"
+import loadable from "@loadable/component"
 import { Seo } from "../../components/seo"
+const BlogsFeed = loadable(() => import("../../components/blog-feed"))
+const Layout = loadable(() => import("../../components/layout"))
+const Bio = loadable(() => import("../../components/bio"))
 
 const BlogFeed = ({ data }) => {
   return (
@@ -41,7 +42,7 @@ export const blogFeedQuery = graphql`
           thumbnail {
             childImageSharp {
               gatsbyImageData(
-                width: 1700
+                width: 700
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF, PNG]
               )
