@@ -1,6 +1,17 @@
 .home-container{
     font-family: 'DM Sans', sans-serif;
     padding-bottom: 40px;
+    height: 100%;
+
+    .home-inner{
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      @media screen and (max-width: 799px){
+        height: 650px;
+
+    }
+        }
 
     .home-background-pic{
         position: absolute;
@@ -22,7 +33,7 @@
         }
 
         @media screen and (max-width: 799px){
-            height: 750px;
+            height: 650px;
 
         }
     }
@@ -108,7 +119,6 @@
     .blog-title-shape{
         height: 150px;
         width:  150px;
-        background-color: #4267BD;
         position: absolute;
         border-radius: 50%;
         margin-top: 420px;
@@ -119,13 +129,14 @@
         justify-content: center;
         opacity: 0.95;
         padding: 10px;
+        z-index: 999;
 
         @media screen and (max-width: 1250px) and (min-width: 800px) {
             margin-top: 260px;
 
         }
         @media screen and (max-width: 799px){
-            
+            display: none;
         }
         
     }
@@ -135,22 +146,97 @@
         top: 0;
         z-index: -1;
         opacity: 0.8;
-        min-height: 500px;
         width: 100%;
         height: 100%;
-        @media screen and (max-width: 799px){
-            min-height: 800px;
+        @media screen and (max-width: 555px){
+            height: 50%;
+        }
+ 
+    }
 
+    .home-image-double{
+      bottom: 0;
+height: 250px;
+opacity: 0.2;
+position: absolute;
+
+@media screen and (min-width: 799px){
+  display: none;
+
+
+}
+    }
+
+    .home-carousel-line{
+      height: 5px;
+      width: 40px;
+      background-color: black;
+      opacity: 0.8;
+      z-index: 999;
+      margin: 20px 0;
+      // margin: 10px 60px 10px 0;
+    }
+
+    .carousel-excerpt{
+      font-size: 18px;
+      color: white;
+      width: 85%;
+            }
+        
+
+    .carousel-color-block{
+      width: 100%;
+      opacity: 0.8;
+      z-index: 998;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+   
+      :first-child{
+        font-size: 28px;
+        color: white;
+        font-weight: 700;
+      }
+   
+      
+        @media screen and (min-width: 799px){
+       display: none;
         }
     }
+
+    .carousel-color-0{
+      background-color: #4D7EA8;
+    }
+
+    .carousel-color-1{
+      background-color: #9E90A2;
+    }
+
+    .carousel-color-2{
+      background-color: #57886C;
+    }
+
+    .carousel-color-3{
+      background-color: #494949;
+    }
+
+    .carousel-color-4{
+      background-color: #D68C45;
+
+    }
+
 
     .read-article{
         text-decoration: none;
         color: white;
-        font-size: 1rem;
+        font-size: 15;
         font-family: 'DM Sans', sans-serif;
         display: inline-block;
-
+      margin-top: 20px;
+      text-decoration: underline;
     }
 }
 

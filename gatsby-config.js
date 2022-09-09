@@ -11,6 +11,7 @@ module.exports = {
     description: `A personal travel blog sharing my experiences, learnings and dispensing wisdom.`,
   },
   plugins: [
+    "gatsby-plugin-loadable-components-ssr",
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,

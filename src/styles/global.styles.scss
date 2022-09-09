@@ -29,7 +29,7 @@ body{
         justify-content: space-between;
         z-index: 999;
         @media screen and (max-width: 1250px) and (min-width: 800px) {
-            width: 95%;
+            width: 750px;
         }
         @media screen and (max-width: 799px){
             width: 95%;
@@ -111,6 +111,8 @@ body{
                 color: white;
                 position: relative;
                 z-index: 999;
+                @media screen and (max-width: 1250px){
+font-size: 2em;                }
             }
 
         }
@@ -125,6 +127,7 @@ body{
             z-index: 999;
             height: 40px;
             margin-top: 10px;
+            
             
 
             .header-link{
@@ -174,12 +177,15 @@ body{
 
         .dropdown-links{
             position: absolute;
-            @media screen and (max-width: 1250px){
-                width: 100%;
-                left: 0;
+            @media screen and (max-width: 1250px) and (min-width: 800px) {
+                width: 750px;
             }
+            @media screen and (max-width: 799px){
+                width: 95%;
+            }
+            
 
-            margin-top: 58px;
+            margin-top: 55px;
             height: 95px;
             line-height: 25px;
             transition: all ease 0.4s;

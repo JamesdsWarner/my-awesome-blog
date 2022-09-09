@@ -35,10 +35,12 @@ const Home = ({ data }) => {
               const title = post.frontmatter.title
               const slug = post.fields.slug
               console.log(slug)
+              const contents = post.excerpt
               const postThumbnail = getImage(post.frontmatter.thumbnail)
+              console.log(i)
               return (
-                <div key={i}>
-                  <div className="blog-title-shape">
+                <div className="home-inner" key={i}>
+                  <div className={`blog-title-shape carousel-color-${i}`}>
                     <div
                       className={
                         (title.length > 6 ? "long-title" : "") + " one-line"
@@ -54,6 +56,17 @@ const Home = ({ data }) => {
                     image={postThumbnail}
                     alt={title}
                     className="home-image"
+                  />
+                  <div className={`carousel-color-block carousel-color-${i}`}>
+                    <span>{title}</span>
+                    <div className="home-carousel-line" />
+                    <p className="carousel-excerpt">{contents}</p>
+                    <span className="read-article">Read article...</span>
+                  </div>
+                  <GatsbyImage
+                    image={postThumbnail}
+                    alt={title}
+                    className="home-image-double"
                   />
                 </div>
               )
