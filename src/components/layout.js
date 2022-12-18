@@ -50,6 +50,7 @@ const Layout = ({ children }) => {
         <ul
           style={{
             height: !isDropdownClicked && deviceSize < 1251 && "0",
+            paddingTop: !isDropdownClicked && deviceSize < 1251 && "0",
           }}
           className={deviceSize > 1251 ? "header-links" : "dropdown-links"}
         >
@@ -64,20 +65,9 @@ const Layout = ({ children }) => {
               ABOUT
             </Link>
           </li>
-
-          <li>
-            <Link to="/contact" className="header-link third-link">
-              CONTACT{" "}
-            </Link>
-          </li>
         </ul>
       </div>
       <div className="content">{children}</div>
-      <div className="footer">
-        <footer>
-          <p>Copyright 2022</p>
-        </footer>
-      </div>
     </div>
   )
 }

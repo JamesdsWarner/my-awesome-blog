@@ -1,21 +1,30 @@
 .bio-container{
-    @media screen and (max-width: 950px) {
+    @media screen and (max-width: 1050px) {
         display: none
     }
-   width: 30%;
+   width: 400px;
    position: sticky;
    top: 100px;
    justify-content: center;
-   align-self: flex-start
-
+   align-self: flex-start;
+   color: white;
+   border-style: solid;
+   border-width: 3.5px;
+   border-color: #6F8A9A;
+   border-radius: 6px;
+   padding: 19px;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   background-color: #6F8A9F;
 }
 
 .bio-pic {
     border-radius: 50%;
-    height: 25vw;
-    width: 25vw;
+    height: 300px;
+    width: 300px;
     margin: auto;
     display: block;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
     
 }
 

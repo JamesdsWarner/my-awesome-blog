@@ -21,9 +21,6 @@ const Bio = () => {
         <Link to="/about">
           <span className="bio-link">About</span>
         </Link>
-        <Link to="/contact">
-          <span className="bio-link">Contact</span>
-        </Link>
       </div>
       <div className="social-media-icons">
         <a href="https://www.facebook.com" target="_blank" rel="noreferrer">

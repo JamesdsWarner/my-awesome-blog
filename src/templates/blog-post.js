@@ -1,10 +1,12 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
-import Layout from "../components/layout"
 import { Seo } from "../components/seo"
+import loadable from "@loadable/component"
 import "../styles/global.styles.scss"
 import "../styles/blog-post.styles.scss"
+const Layout = loadable(() => import("../components/layout"))
+const Bio = loadable(() => import("../components/bio"))
 
 const BlogPostTemplate = ({ data }) => {
   const { html } = data.markdownRemark
@@ -12,17 +14,21 @@ const BlogPostTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <div className="details">
-        <h2>{title}</h2>
-        <div className="featured">
-          <GatsbyImage
-            image={getImage(thumbnail.childImageSharp.gatsbyImageData)}
-            alt="Projects"
-          />
-          <p className="date">{date}</p>
+      <div className="blog-post-container">
+        <div className="details">
+          <h2>{title}</h2>
+          <div className="featured">
+            <GatsbyImage
+              image={getImage(thumbnail.childImageSharp.gatsbyImageData)}
+              alt="Projects"
+            />
+            <p className="date">{date}</p>
+          </div>
+
+          <div className="html" dangerouslySetInnerHTML={{ __html: html }} />
         </div>
 
-        <div className="html" dangerouslySetInnerHTML={{ __html: html }} />
+        <Bio />
       </div>
     </Layout>
   )

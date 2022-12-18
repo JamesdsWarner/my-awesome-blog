@@ -2,7 +2,7 @@ import * as React from "react"
 import loadable from "@loadable/component"
 import { Seo } from "../components/seo"
 import { Link, graphql } from "gatsby"
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
 import { Carousel } from "react-responsive-carousel"
 import "../styles/global.styles.scss"
@@ -12,20 +12,15 @@ const BlogsFeed = loadable(() => import("../components/blog-feed"))
 
 const Home = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
+
   return (
     <Layout>
       <div className="home-container">
-        <StaticImage
-          className="home-background-pic"
-          src="../images/holiday-background.webp"
-          quality={100}
-          alt="Beach background picture"
-        />
         <Carousel
           showThumbs={false}
           infiniteLoop={true}
           showStatus={false}
-          showArrows={false}
+          showArrows={true}
         >
           {posts
             .slice(posts.length - 5, posts.length)
@@ -38,6 +33,7 @@ const Home = ({ data }) => {
               const contents = post.excerpt
               const postThumbnail = getImage(post.frontmatter.thumbnail)
               console.log(i)
+
               return (
                 <div className="home-inner" key={i}>
                   <div className={`blog-title-shape carousel-color-${i}`}>
@@ -61,8 +57,13 @@ const Home = ({ data }) => {
                     <span>{title}</span>
                     <div className="home-carousel-line" />
                     <p className="carousel-excerpt">{contents}</p>
-                    <span className="read-article">Read article...</span>
+                    <Link to={"/blog" + slug} className="read-article">
+                      <span className="read-article-inner">
+                        Read article...
+                      </span>
+                    </Link>
                   </div>
+
                   <GatsbyImage
                     image={postThumbnail}
                     alt={title}
@@ -87,7 +88,7 @@ export default Home
 
 export const Head = () => (
   <Seo
-    title="Homepage of blog site with blog previews"
+    title="NO FIXED ABODE"
     description="[bloggers] official travel blog. Join the journey and read about my experiences, my takeaways and reviews of popular traveller destinations!"
   />
 )

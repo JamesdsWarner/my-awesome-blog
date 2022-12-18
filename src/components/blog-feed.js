@@ -10,7 +10,7 @@ const BlogsFeed = ({ data, location }) => {
     <ol className={location === "blog" ? "blog-feed" : "blog-feed-home"}>
       {posts
         .slice(
-          location === "blog" ? posts.length - 5 : posts.length - 10,
+          location === "blog" ? 0 : posts.length - 10,
           location === "blog" ? posts.length : posts.length - 5
         )
         .slice(0)

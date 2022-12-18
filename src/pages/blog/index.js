@@ -23,7 +23,7 @@ export default BlogFeed
 
 export const Head = () => (
   <Seo
-    title="Feed of all the blog posts"
+    title="Blog post archives || NO FIXED ABODE"
     description="Check out all of my blog posts in one place."
   />
 )

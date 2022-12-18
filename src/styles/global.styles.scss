@@ -8,7 +8,8 @@
 }
 
 body{
-    background-color: #36454F;
+    background-image: linear-gradient(#6F8A9D, #36454F);
+    // background-color: #36454F;
 
 }
 
@@ -21,24 +22,21 @@ body{
 
     
     .header{
-        margin-top: 14px;
         margin-left: auto;
         margin-right: auto;
-        width: 1160px;
+        width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         z-index: 999;
-        @media screen and (max-width: 1250px) and (min-width: 800px) {
-            width: 750px;
-        }
-        @media screen and (max-width: 799px){
-            width: 95%;
-        }
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        opacity: 1;
+        background-color: #6F8A9F;
+        font-weight: 900;
 
         .dropdown-icon {
             width: 30px;
             display: block;
-            margin: 1em 0 0 1em;
+            margin: 0.3em 0 0 1em;
             z-index: inherit;
 
             div{ 
@@ -74,18 +72,6 @@ body{
             }
         }
 
-        // .dropdown-icon-clicked {
-        //     border: solid white;
-        //     border-width: 0 3px 3px 0;
-        //     display: inline-block;
-        //     padding: 3px;
-        //     transform: rotate(45deg);
-        //     -webkit-transform: rotate(45deg);
-        //     cursor: pointer;
-        //     div{
-        //         display: none;
-        //     }
-        //   }
 
         .dropdown-icon.dropdown-icon-clicked .menu-line-two{
         transform: translateX(-50px);
@@ -112,7 +98,8 @@ body{
                 position: relative;
                 z-index: 999;
                 @media screen and (max-width: 1250px){
-font-size: 2em;                }
+                    font-size: 2em;                
+                }
             }
 
         }
@@ -125,8 +112,11 @@ font-size: 2em;                }
             justify-content: center;
             align-content: center;
             z-index: 999;
-            height: 40px;
+            height: 30px;
             margin-top: 10px;
+            
+            
+
             
             
 
@@ -139,9 +129,8 @@ font-size: 2em;                }
                 text-decoration: none;
                 padding-left: 20px;
                 padding-right: 20px;
-                height: 40px;
-                
-
+                height: 30px;
+                margin-top: 5px;
             }
         
             .first-link.second-link.third-link{
@@ -177,22 +166,25 @@ font-size: 2em;                }
 
         .dropdown-links{
             position: absolute;
-            @media screen and (max-width: 1250px) and (min-width: 800px) {
-                width: 750px;
-            }
-            @media screen and (max-width: 799px){
-                width: 95%;
-            }
+   
+            min-width: 60px;
             
+            width: 10%;
 
-            margin-top: 55px;
-            height: 95px;
+            margin-top: 41.5px;
+            height: 55px;
             line-height: 25px;
             transition: all ease 0.4s;
-            padding: 0;
+            padding-top: 5px;
+            padding-left: 0;
             overflow: hidden;
-            background-color: black;
-            
+            background-color: #6F8A9F;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+            text-align: center;
+            border-style: solid;
+            border-width: 0 0.5px 0.5px 0.5px;
+            border-color: #566F7F;
+            right: 15%;
 
             a {li{
                 padding-left: 27px;
@@ -213,6 +205,12 @@ font-size: 2em;                }
                 color: white;
                 list-style: none;
                 text-decoration: none;
+                transition: all ease 0.3s;
+
+                &:hover {
+                    color:rgba(249, 157, 119, 0.8);
+
+                }
 
                 
             }
@@ -220,15 +218,7 @@ font-size: 2em;                }
         }
         }
 
-  
 
-    
-
-   
-
-    .content {
-        
-    }
 
     .footer{
         margin-top: 60px;

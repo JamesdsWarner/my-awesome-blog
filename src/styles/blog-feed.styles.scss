@@ -67,7 +67,8 @@
 
 .home-image-container{
     overflow: hidden;
-    
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
 }
 
 .post-caption-container{
@@ -118,11 +119,11 @@
     justify-content: space-between;
     list-style-type: none;
     padding: 0;
-    width: 40%;
+    width: 50%;
     flex-shrink: 0;
     gap: 10px;
     
-    @media screen and (max-width: 950px) {
+    @media screen and (max-width: 1050px) {
         width: 95%;
     }
 
@@ -154,6 +155,8 @@
     margin-top: 30px;
     column-gap: 1%;
     row-gap: 10px;
+    margin-bottom: 15px;
+
 
     @media screen and (max-width: 1000px) {
         row-gap: 5px;
