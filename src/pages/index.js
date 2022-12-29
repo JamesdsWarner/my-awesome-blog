@@ -21,6 +21,8 @@ const Home = ({ data }) => {
           infiniteLoop={true}
           showStatus={false}
           showArrows={true}
+          swipeScrollTolerance="20"
+          preventMovementUntilSwipeScrollTolerance={true}
         >
           {posts
             .slice(posts.length - 5, posts.length)
