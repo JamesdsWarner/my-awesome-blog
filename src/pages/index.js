@@ -62,7 +62,7 @@ const Home = ({ data }) => {
                   <div className={`blog-title-shape carousel-color-${i}`}>
                     <div
                       className={
-                        (title.length > 6 ? "long-title" : "") + " one-line"
+                        (title.length > 8 ? "long-title" : "") + " one-line"
                       }
                     >
                       <span className="home-post-title">{title}</span>

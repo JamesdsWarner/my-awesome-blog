@@ -12,7 +12,7 @@ const BlogsFeed = ({ data, location }) => {
   return posts.length > 5 ? (
     <ol className={location === "blog" ? "blog-feed" : "blog-feed-home"}>
       {posts
-        .slice(location === "blog" ? 0 : 0, posts.length - 5)
+        .slice(0, location === "blog" ? posts.length : posts.length - 5)
         .slice(0)
         .reverse()
         .map((post, i) => {

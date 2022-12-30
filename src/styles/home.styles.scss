@@ -103,7 +103,6 @@
     }
 
     .one-line {
-        width: 100%;
         display: inline-block; /* important */
         white-space: nowrap;
         overflow: hidden;
@@ -140,11 +139,11 @@
 
     .home-image {
         margin: 0;
-        top: 0;
         z-index: -1;
         width: 105%;
         height: 105%;
         @media screen and (max-width: 555px){
+
             height: 50%;
         }
  
