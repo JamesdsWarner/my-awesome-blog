@@ -1,5 +1,6 @@
 import * as React from "react"
 import loadable from "@loadable/component"
+import { useState, useEffect } from "react"
 import { Seo } from "../components/seo"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -11,6 +12,26 @@ const Layout = loadable(() => import("../components/layout"))
 const BlogsFeed = loadable(() => import("../components/blog-feed"))
 
 const Home = ({ data }) => {
+  const [deviceSize, setDeviceSize] = useState(
+    typeof window !== "undefined" ? window.innerWidth : null
+  )
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof window !== "undefined") {
+        window.addEventListener("resize", handleResize)
+        setDeviceSize(window.innerWidth)
+        return () => window.removeEventListener("resize", handleResize)
+      } else return null
+    }
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize)
+
+      return () => window.removeEventListener("resize", handleResize)
+    } else return null
+  }, [])
+
   const posts = data.allMarkdownRemark.nodes
 
   return (
@@ -46,7 +67,7 @@ const Home = ({ data }) => {
                     >
                       <span className="home-post-title">{title}</span>
                     </div>
-                    <Link to={"/blog" + slug}>
+                    <Link className="article-link" to={"/blog" + slug}>
                       <span className="read-article">Read article...</span>
                     </Link>
                   </div>
@@ -56,7 +77,7 @@ const Home = ({ data }) => {
                     className="home-image"
                   />
                   <div className={`carousel-color-block carousel-color-${i}`}>
-                    <span>{title}</span>
+                    <span className="colour-block-title">{title}</span>
                     <div className="home-carousel-line" />
                     <p className="carousel-excerpt">{contents}</p>
                     <Link to={"/blog" + slug} className="read-article">
@@ -79,8 +100,23 @@ const Home = ({ data }) => {
       <div>
         <BlogsFeed data={data} location="blog-feed-home" />
       </div>
-      <Link to="/blog" className="blog-link">
-        <h3>See More...</h3>
+      <Link
+        style={{
+          marginBottom:
+            posts.length < 6
+              ? deviceSize > "1250"
+                ? "140px"
+                : deviceSize < "1250" && deviceSize > 800
+                ? "370px"
+                : deviceSize < "800"
+                ? "210px"
+                : 0
+              : "40px",
+        }}
+        to="/blog"
+        className="blog-link"
+      >
+        <h3>{posts.length < 6 ? "See all..." : "See More..."}</h3>
       </Link>
     </Layout>
   )

@@ -1,6 +1,6 @@
 .bio-container{
-    @media screen and (max-width: 1050px) {
-        display: none
+    @media screen and (max-width: 1300px) {
+        display: none;
     }
    width: 400px;
    position: sticky;
@@ -8,13 +8,10 @@
    justify-content: center;
    align-self: flex-start;
    color: white;
-   border-style: solid;
-   border-width: 3.5px;
-   border-color: #6F8A9A;
-   border-radius: 6px;
+   border-radius: 20px;
    padding: 19px;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-   background-color: #6F8A9F;
+   background-color: #333;
 }
 
 .bio-pic {

@@ -6,13 +6,13 @@ import "../styles/blog-feed.styles.scss"
 const BlogsFeed = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes
   const n = 4
-  return (
+
+  console.log(posts.length, "POSTS")
+
+  return posts.length > 5 ? (
     <ol className={location === "blog" ? "blog-feed" : "blog-feed-home"}>
       {posts
-        .slice(
-          location === "blog" ? 0 : posts.length - 10,
-          location === "blog" ? posts.length : posts.length - 5
-        )
+        .slice(location === "blog" ? 0 : 0, posts.length - 5)
         .slice(0)
         .reverse()
         .map((post, i) => {
@@ -47,6 +47,8 @@ const BlogsFeed = ({ data, location }) => {
         <li className="blog-item" key={i} />
       ))}
     </ol>
+  ) : (
+    ""
   )
 }
 

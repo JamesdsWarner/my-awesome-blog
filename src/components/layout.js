@@ -5,29 +5,10 @@ import "../styles/global.styles.scss"
 
 const Layout = ({ children }) => {
   const [isDropdownClicked, setIsDropdownClicked] = useState(false)
-  const [deviceSize, setDeviceSize] = useState(
-    typeof window !== "undefined" ? window.innerWidth : null
-  )
 
   const handleClick = () => {
     setIsDropdownClicked(!isDropdownClicked)
   }
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (typeof window !== "undefined") {
-        window.addEventListener("resize", handleResize)
-        setDeviceSize(window.innerWidth)
-        return () => window.removeEventListener("resize", handleResize)
-      } else return null
-    }
-
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize)
-
-      return () => window.removeEventListener("resize", handleResize)
-    } else return null
-  }, [])
 
   return (
     <div className="layout">
@@ -47,13 +28,7 @@ const Layout = ({ children }) => {
           <div className="menu-line-two" />
           <div className="menu-line-three" />
         </div>
-        <ul
-          style={{
-            height: !isDropdownClicked && deviceSize < 1251 && "0",
-            paddingTop: !isDropdownClicked && deviceSize < 1251 && "0",
-          }}
-          className={deviceSize > 1251 ? "header-links" : "dropdown-links"}
-        >
+        <ul className={`header-links ${isDropdownClicked && "active"}`}>
           <li>
             <Link to="/blog" className="header-link first-link">
               BLOG

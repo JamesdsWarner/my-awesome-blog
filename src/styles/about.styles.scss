@@ -24,8 +24,6 @@
         }
     }
 
-    
-
     .about-text{
 
         align-items: center;
@@ -35,15 +33,36 @@
         flex-direction: column;
         
         h3{
-            color: white;
+            color: #333;
             font-size: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         p{
             margin-bottom: 30px;
-            color: white;
+            color: #333;
             width: 80%;
         }
     }
+}
+
+@media screen and (max-width: 940px){
+    .about-container {
+    flex-direction: column;
+    .about-pic-container{
+    .about-pic{
+        height: 550px;
+        
+        img{
+            object-position: 100% 50%;
+            }
+        }
+    }
+}
+
+    .about-text{
+        margin-top: 30px;
+    }
+
+
 }
 

@@ -3,13 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 * {
-    margin: 0;
-
+margin: 0;
 }
 
 body{
-    background-image: linear-gradient(#6F8A9D, #36454F);
-    // background-color: #36454F;
+    background-color: #fff;
+    background-image: url("https://www.transparenttextures.com/patterns/french-stucco.png");
+    margin: 0;
 
 }
 
@@ -20,7 +20,6 @@ body{
     flex-direction: column;
     text-decoration: none;
 
-    
     .header{
         margin-left: auto;
         margin-right: auto;
@@ -30,14 +29,17 @@ body{
         z-index: 999;
         box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
         opacity: 1;
-        background-color: #6F8A9F;
+        background-color: #333;
         font-weight: 900;
 
         .dropdown-icon {
             width: 30px;
             display: block;
-            margin: 0.3em 0 0 1em;
             z-index: inherit;
+            top: .85rem;
+            right: 1rem;
+            position: absolute;
+            margin: auto;
 
             div{ 
                 height: 4px;
@@ -46,7 +48,6 @@ body{
                 border-radius: 25px;
                 transition: 0.3s ease;
                 float: right;
- 
             }
             .menu-line-one{
                 width: 30px;
@@ -67,7 +68,7 @@ body{
             }
 
             
-            @media screen and (min-width: 1251px) {
+            @media screen and (min-width: 801px) {
                 display: none;
             }
         }
@@ -89,7 +90,9 @@ body{
         
 
         .home-link {
-            z-index: 999;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
 
             .home-title{
                 font-size: 3rem;
@@ -97,126 +100,98 @@ body{
                 color: white;
                 position: relative;
                 z-index: 999;
-                @media screen and (max-width: 1250px){
-                    font-size: 2em;                
+                margin: 0;
+                @media screen and (max-width: 801px){
+                    font-size: 2em;           
+                    padding: .5rem;     
                 }
             }
-
         }
+
         .header-links{
             display: flex;
-            padding-right: 40px;
             list-style: none;
-            gap: 40px;
-            font-size: 1.1rem;
-            justify-content: center;
-            align-content: center;
-            z-index: 999;
-            height: 30px;
-            margin-top: 10px;
-            
-            
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 0;
 
-            
-            
+            li{
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
 
             .header-link{
                 color: white;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                flex-direction: column;
+                display: block;
                 text-decoration: none;
-                padding-left: 20px;
-                padding-right: 20px;
-                height: 30px;
-                margin-top: 5px;
+                font-size: 1.5rem;
+                padding: 1.5rem;
+
+                &:hover{
+                    color: black;
+                }
             }
         
             .first-link.second-link.third-link{
-                
                 box-shadow: inset 0 0 0 0 rgba(240, 169, 138, 0.8);
-                
+
                 &:hover{
                     color: #fff;
                 }
-                
             }
 
             .first-link:hover{
-                box-shadow: inset 0 -50px 0 0 rgba(249, 157, 119, 0.8), 0 -7px 0 #36454F;
+                box-shadow: inset 0 -80px 0 0 rgba(249, 157, 119, 0.8);
                 transition: all ease 0.7s;   
                 
             }
 
             .second-link:hover{
-                box-shadow: inset 0 -50px 0 0 rgba(191, 210, 246, 0.8), 0 -7px 0 #36454F;
+                box-shadow: inset 0 -80px 0 0 rgba(191, 210, 246, 0.8);
                 transition: all ease 0.7s;      
             }
 
-            .third-link:hover{
-                box-shadow: inset 0 -50px 0 0 rgba(252, 223, 106, 0.8), 0 -7px 0 #36454F;
-                transition: all ease 0.7s;  
-            }
 
-            // @media screen and (max-width: 1251px) {
-            //     display: none;
-            // }
-        }
 
-        .dropdown-links{
-            position: absolute;
-   
-            min-width: 60px;
             
-            width: 10%;
+        }
+        @media screen and (max-width: 800px){
+            flex-direction: column;
+            align-items: flex-start;
 
-            margin-top: 41.5px;
-            height: 55px;
-            line-height: 25px;
-            transition: all ease 0.4s;
-            padding-top: 5px;
-            padding-left: 0;
-            overflow: hidden;
-            background-color: #6F8A9F;
-            box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-            text-align: center;
-            border-style: solid;
-            border-width: 0 0.5px 0.5px 0.5px;
-            border-color: #566F7F;
-            right: 15%;
-
-            a {li{
-                padding-left: 27px;
-                background-color: none;
-                transition: all ease 0.4s;
-
-                &:hover{
-                    background-color: #36454F;
-                }
-            }}
-
-            .first-link {li{
-                margin-top: 10px;
-            }
-            }
-
-            .header-link{
-                color: white;
-                list-style: none;
-                text-decoration: none;
+            .header-links.active{
+                max-height: 10rem;
+                opacity: 100%;
+  
                 transition: all ease 0.3s;
 
-                &:hover {
-                    color:rgba(249, 157, 119, 0.8);
-
-                }
-
-                
             }
 
+            .header-links{
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                max-height: 0;
+                opacity: 0;
+                transition: all ease 0.3s;
+
+                
+                
+                .header-link{
+                    width: 100%;
+                    padding: 0.5rem 1rem;
+                }
+
+                li{
+                    width: 100%;
+                    text-align: center;               
+                }
+            }
         }
-        }
+    }
 
 
 
