@@ -2,6 +2,8 @@
 
 A blog website built using React, Netlify CMS, GraphQL, SASS and Gatsby.
 
+Find the finished product here: https://musical-cobbler-48ef86.netlify.app/
+
 ## To run the app please follow the instructions
 
 
